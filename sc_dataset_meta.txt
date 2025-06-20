@@ -1,0 +1,46 @@
+Database ID	Dataset name	Tissue	Sample	Accession	dataset
+S000	Bacher P et al. (T cells)	Blood	T cells	GSE162086	GSE162086
+S001	Bost P et al. (BALF)	Lung	BALF	GSE157344	GSE157344_Lung
+S002	Bost P et al. (Blood)	Blood	Blood	GSE157344	GSE157344_Blood
+S003	Chavan AR et al. (Decidua and placental villi)	Placenta	Decidua and placental villi	GSE171381	GSE171381
+S004	Chen et al. (Islets)	Pancreas	Islets	GSE159556	GSE159556
+S005	Cheung MD et al. (Urine)	Urine	Urine	GSE180595	GSE180595
+S006	Cordon-Cardo et al. (Olfactory bulb and prefontal cortex)	Brain	Olfactory bulb and prefontal cortex	GSE182298	GSE182298
+S007	Delorey TM et al. (Brain)	Brain	Brain	GSE171668	GSE171668_Brain
+S008	Delorey TM et al. (Heart)	Heart	Heart	GSE171668	GSE171668_Heart
+S009	Delorey TM et al. (Kidney)	Kidney	Kidney	GSE171668	GSE171668_Kidney
+S010	Delorey TM et al. (Liver)	Liver	Liver	GSE171668	GSE171668_Liver
+S011	Delorey TM et al. (Lung)	Lung	Lung	GSE171668	GSE171668_Lung
+S012	Delorey TM et al. (Lymph node)	Lymph node	Lymph node	GSE171668	GSE171668_LymphNode
+S013	Delorey TM et al. (Spleen)	Spleen	Spleen	GSE171668	GSE171668_Spleen
+S014	Delorey TM et al. (Trachea)	Airway	Trachea	GSE171668	GSE171668_Airway
+S015	Eddins et al. (Blood)	Blood	Blood	GSE186267	GSE186267_Blood
+S016	Eddins et al. (Endotracheal aspirates)	Airway	Endotracheal aspirates	GSE186267	GSE186267
+S017	Fukuma N et al. (Right ventricles)	Heart	Right ventricles	GSE185457	GSE185457
+S018	Fullard et al. (Dorsolateral prefrontal cortex, medulla oblongata and choroid plexus)	Brain	Dorsolateral prefrontal cortex, medulla oblongata and choroid plexus	GSE164485	GSE164485
+S019	Heming et al. (Cerebrospinal fluid)	Brain	Cerebrospinal fluid	GSE163005	GSE163005
+S020	Hinze C et al. (Kidney)	Kidney	Kidney	GSE210622	GSE210622
+S021	Hoehn et al. (PBMC)	Blood	PBMC	GSE164379	GSE164379
+S022	Izar B et al. (Lung)	Lung	Lung	GSE171524	GSE171524
+S023	Jansen J et al. (iPSC kidney organoids)	Kidney	iPSC kidney organoids	GSE167747	GSE167747
+S024	Koh G et al. (Nasal swabs)	Nose	Nasal swabs	GSE164547	GSE164547
+S025	Kropski JA et al. (Lung)	Lung	Lung	GSE163919	GSE163919
+S026	Liao et al. (BALF)	Lung	BALF	GSE145926	GSE145926
+S027	Lim et al. (PBMC)	Blood	PBMC	GSE178404	GSE178404
+S028	Martínez-Colón G et al. (Adipose)	Adipose	Adipose	GSE208034	GSE208034
+S029	Misharin et al. (Bronchial epithelium)	Airway	Bronchial epithelium	GSE168215	GSE168215
+S030	Pekayvaz et al. (PBMC)	Blood	PBMC	GSE193708	GSE193708
+S031	Ravindra et al. (Bronchial epithelium)	Airway	Bronchial epithelium	GSE166766	GSE166766
+S032	Scott MK et al. (Blood)	Blood	Blood	GSE155673	GSE155673
+S033	Steed et al. (PBMC)	Blood	PBMC	GSE192391	GSE192391
+S034	Triana et al. (Colon)	Intestinal	Colon	GSE156760	GSE156760_Colon
+S035	Triana et al. (Ileum)	Intestinal	Ileum	GSE156760	GSE156760_Ileum
+S036	Unterman et al. (PBMC)	Blood	PBMC	GSE155223	GSE155223
+S037	Wilk et al. (Blood)	Blood	PBMC	GSE174072	GSE174072
+S038	Wilk et al. (PBMC)	Blood	PBMC	GSE150728	GSE150728
+S039	Xu et al. (Lung)	Lung	Lung	GSE149878	GSE149878
+S040	Yang L et al. (Cardiomyocytes)	Heart	Cardiomyocytes	GSE151878	GSE151878
+S041	Yang et al. (Cortex and choroid plexi)	Brain	Cortex and choroid plexi	GSE159812	GSE159812
+S042	Yao et al. (Buffy coat)	Blood	Buffy coat	GSE154567	GSE154567
+S043	Yegnasubramanian S et al. (Blood)	Blood	PBMC	GSE166992	GSE166992
+S044	Zhang et al. (PBMC)	Blood	PBMC	GSE165080	GSE165080
