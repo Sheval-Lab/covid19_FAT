@@ -172,7 +172,7 @@ kegg_lipid <- kegg_by_celltype_df %>%
       (str_detect(str_to_lower(Description), paste(lipid_terms, collapse = "|")))) %>% 
   # Remove some GO BP terms
   dplyr::filter(
-    category %in% c("Metabolism", "Organismal Systems"),
+    # category %in% c("Metabolism", "Organismal Systems"),
     !str_detect(Description, paste(nonlipid_terms, collapse = "|")))
 
 
@@ -192,8 +192,7 @@ write_tsv(go_lipid_revigo_imp_2genetable, file.path(res_dir, "go_lipid_revigo_im
 ## KEGG
 kegg_lipid_2genetable <- kegg_lipid %>% 
   left_join(ds_meta, by = "dataset") %>% 
-  dplyr::select(ID, Description, geneID, status, celltype, Tissue, dataset, `Dataset name`) %>% 
-  separate_rows(geneID, sep = "/")
+  dplyr::select(ID, Description, geneID, status, celltype, Tissue, dataset, `Dataset name`) 
 
 write_tsv(kegg_lipid_2genetable, file.path(res_dir, "kegg_lipid_degs.txt"))
 
