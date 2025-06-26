@@ -1,6 +1,7 @@
 # Load libraries ---------------------------------------------------------------
 library(tidyverse)
 library(clusterProfiler)
+# install.packages("./KEGG.db_1.0.tar.gz", repos = NULL, type = "source")
 library(KEGG.db)
 source("revigo.R")
 
@@ -102,7 +103,7 @@ go_by_celltype_df <- ora_by_celltype$go_bp %>%
 
 ## Lipid-related words
 lipid_terms <- c("lipid", "fat", "triglyceride", "cholesterol")
-nonlipid_terms <- c("fate", "sulfat", "liver disease")
+nonlipid_terms <- c("fate", "sulfat")
 
 go_lipid <- go_by_celltype_df %>%
   # Remove 'in vitro' datasets 
@@ -166,9 +167,13 @@ kegg_lipid <- kegg_by_celltype_df %>%
   # Keep only significant KEGG pathways
   dplyr::filter(qvalue <= 0.05) %>% 
   # Keep only KEGG pathways related to lipids metabolism
-  dplyr::filter(str_detect(str_to_lower(Description), paste(lipid_terms, collapse = "|"))) %>%
-  # Remove some KEGG pathways
-  dplyr::filter(!str_detect(str_to_lower(Description), paste(nonlipid_terms, collapse = "|")))
+  dplyr::filter(
+    (subcategory == "Lipid metabolism") | 
+      (str_detect(str_to_lower(Description), paste(lipid_terms, collapse = "|")))) %>% 
+  # Remove some GO BP terms
+  dplyr::filter(
+    category %in% c("Metabolism", "Organismal Systems"),
+    !str_detect(Description, paste(nonlipid_terms, collapse = "|")))
 
 
 ## Save KEGG ORA results
@@ -187,7 +192,8 @@ write_tsv(go_lipid_revigo_imp_2genetable, file.path(res_dir, "go_lipid_revigo_im
 ## KEGG
 kegg_lipid_2genetable <- kegg_lipid %>% 
   left_join(ds_meta, by = "dataset") %>% 
-  dplyr::select(ID, Description, geneID, status, celltype, Tissue, dataset, `Dataset name`) 
+  dplyr::select(ID, Description, geneID, status, celltype, Tissue, dataset, `Dataset name`) %>% 
+  separate_rows(geneID, sep = "/")
 
 write_tsv(kegg_lipid_2genetable, file.path(res_dir, "kegg_lipid_degs.txt"))
 

@@ -136,8 +136,8 @@ kegg_lipid_2plot_by_tissue %>%
   guides(size = guide_legend(override.aes = list(color = "#0a9396"), order = 2)) +
   labs(x = "", y = "") 
 
-ggsave(file.path(res_dir, "KEGG_by_tissue_lipid_keywords.HC.png"), device = agg_png, dpi = 300, width = 11, height = 6, units = "cm", scaling = 0.6)
-ggsave(file.path(res_dir, "KEGG_by_tissue_lipid_keywords.HC.svg"), width = 11, height = 6, units = "cm", scale = 1/0.6)
+ggsave(file.path(res_dir, "KEGG_by_tissue_lipid_keywords.HC.png"), device = agg_png, dpi = 300, width = 10, height = 6, units = "cm", scaling = 0.6)
+ggsave(file.path(res_dir, "KEGG_by_tissue_lipid_keywords.HC.svg"), width = 10, height = 6, units = "cm", scale = 1/0.6)
 
 
 ## By dataset - only Lung and Airway -------------------------------------------
@@ -215,15 +215,15 @@ kegg_lipid_2plot_by_dataset %>%
     guide = "legend") +
   scale_size_identity(
     "Number of\ncell types",
-    breaks = log2(c(min_size_k_ds, c(min_size_k_ds:max_size_k_ds)[c(FALSE, FALSE, FALSE, FALSE, TRUE)])+1)*3,
-    labels = c(min_size_k_ds, c(min_size_k_ds:max_size_k_ds)[c(FALSE, FALSE, FALSE, FALSE, TRUE)]),
+    breaks = log2(c(min_size_k_ds, c(min_size_k_ds:max_size_k_ds)[c(FALSE, TRUE)])+1)*3,
+    labels = c(min_size_k_ds, c(min_size_k_ds:max_size_k_ds)[c(FALSE, TRUE)]),
     guide = "legend") +
   guides(color = guide_legend(override.aes = list(size = 5), order = 1)) +
   guides(size = guide_legend(override.aes = list(color = "#0a9396"), order = 2)) +
   labs(x = "", y = "") 
 
-ggsave(file.path(res_dir, "KEGG_by_dataset_lipid_keywords.HC.png"), device = agg_png, dpi = 300, width = 14, height = 7, units = "cm", scaling = 0.6)
-ggsave(file.path(res_dir, "KEGG_by_dataset_lipid_keywords.HC.svg"), width = 14, height = 7, units = "cm", scale = 1/0.6)
+ggsave(file.path(res_dir, "KEGG_by_dataset_lipid_keywords.HC.png"), device = agg_png, dpi = 300, width = 9, height = 5, units = "cm", scaling = 0.6)
+ggsave(file.path(res_dir, "KEGG_by_dataset_lipid_keywords.HC.svg"), width = 9, height = 5, units = "cm", scale = 1/0.6)
 
 
 ## By cell type - only Lung and Airway -----------------------------------------
@@ -293,12 +293,12 @@ kegg_lipid_2plot_2plot_by_celltype <- kegg_lipid_2plot %>%
   distinct(Description, dataset, `Dataset name`, celltype_tidy, status, Tissue, Tissue_type, symbol, color)
 
 
-kegg_lipid_2plot_2plot_by_celltype_lung <- kegg_lipid_2plot_2plot_by_celltype %>% 
-  dplyr::filter(Tissue == "Lung", Tissue_type == "Solid tissue") %>%
+kegg_lipid_2plot_2plot_by_celltype %>% 
+  # dplyr::filter(Tissue == "Lung", Tissue_type == "Solid tissue") %>%
   ggplot(aes(x = celltype_tidy, y = Description)) +
   geom_text(aes(color = color, label = symbol), size = 5, family = "Arial Unicode MS", key_glyph = "point") +
   facet_nested(~ Tissue + Tissue_type + `Dataset name`, scales = "free_x") +
-  force_panelsizes(cols = c(9, 8, 10, 5)) +
+  force_panelsizes(cols = c(2, 2, 3, 2, 4)) +
   scale_x_discrete(expand = expansion(add = .8)) +
   scale_y_discrete(expand = expansion(add = .8)) +
   scale_color_identity(
@@ -307,30 +307,10 @@ kegg_lipid_2plot_2plot_by_celltype_lung <- kegg_lipid_2plot_2plot_by_celltype %>
     labels = c("Upregulated", "Downregulated"),
     guide = "legend") +
   guides(color = guide_legend(override.aes = list(size = 5), order = 1)) +
-  labs(x = "", y = "") 
-
-kegg_lipid_2plot_2plot_by_celltype_airway <- kegg_lipid_2plot_2plot_by_celltype %>% 
-  dplyr::filter(!(Tissue == "Lung" & Tissue_type == "Solid tissue")) %>%
-  ggplot(aes(x = celltype_tidy, y = Description)) +
-  geom_text(aes(color = color, label = symbol), size = 5, family = "Arial Unicode MS", key_glyph = "point") +
-  facet_nested(~ Tissue + Tissue_type + `Dataset name`, scales = "free_x") +
-  force_panelsizes(cols = c(14, 7, 3.5, 5, 4)) +
-  scale_x_discrete(expand = expansion(add = .8)) +
-  scale_y_discrete(expand = expansion(add = .8)) +
-  scale_color_identity(
-    "",
-    breaks = c("#f4a261", "#0a9396"),
-    labels = c("Upregulated", "Downregulated"),
-    guide = "legend") +
-  guides(color = guide_legend(override.aes = list(size = 5), order = 1)) +
-  labs(x = "", y = "") 
-
-
-kegg_lipid_2plot_2plot_by_celltype_lung / 
-  kegg_lipid_2plot_2plot_by_celltype_airway +
-  plot_layout(guides = "collect") &
+  labs(x = "", y = "") +
   theme(legend.position = "top")
 
-ggsave(file.path(res_dir, "KEGG_by_celltype_lipid_keywords.HC.png"), device = agg_png, dpi = 300, width = 16, height = 12, units = "cm", scaling = 0.6)
-ggsave(file.path(res_dir, "KEGG_by_celltype_lipid_keywords.HC.svg"), width = 16, height = 12, units = "cm", scale = 1/0.6)
+
+ggsave(file.path(res_dir, "KEGG_by_celltype_lipid_keywords.HC.png"), device = agg_png, dpi = 300, width = 10, height = 6, units = "cm", scaling = 0.6)
+ggsave(file.path(res_dir, "KEGG_by_celltype_lipid_keywords.HC.svg"), width = 10, height = 6, units = "cm", scale = 1/0.6)
 
